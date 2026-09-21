@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temperature Converter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="card">
+    <h1>Temperature Converter</h1>
+    <p class="subtitle">Convert between Celsius, Fahrenheit &amp; Kelvin</p>
+
+    <form id="converterForm" novalidate>
+      <div class="field">
+        <label for="tempValue">Temperature Value</label>
+        <input
+          type="text"
+          inputmode="decimal"
+          id="tempValue"
+          name="tempValue"
+          placeholder="e.g. 25"
+          autocomplete="off"
+        />
+        <p class="error" id="valueError" role="alert"></p>
+      </div>
+
+      <div class="field">
+        <label>Input Unit</label>
+        <div class="unit-options" id="unitOptions">
+          <label class="unit-pill">
+            <input type="radio" name="unit" value="C" checked />
+            <span>Celsius (°C)</span>
+          </label>
+          <label class="unit-pill">
+            <input type="radio" name="unit" value="F" />
+            <span>Fahrenheit (°F)</span>
+          </label>
+          <label class="unit-pill">
+            <input type="radio" name="unit" value="K" />
+            <span>Kelvin (K)</span>
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn">Convert</button>
+    </form>
+
+    <section class="results" id="results" aria-live="polite">
+      <div class="result-row" id="row-C">
+        <span class="result-label">Celsius</span>
+        <span class="result-value" id="out-C">—</span>
+      </div>
+      <div class="result-row" id="row-F">
+        <span class="result-label">Fahrenheit</span>
+        <span class="result-value" id="out-F">—</span>
+      </div>
+      <div class="result-row" id="row-K">
+        <span class="result-label">Kelvin</span>
+        <span class="result-value" id="out-K">—</span>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
