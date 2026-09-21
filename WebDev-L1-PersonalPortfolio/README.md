@@ -1,4 +1,5 @@
 # Afia Bakr — Personal Portfolio
+https://afia-personal-portfolio.netlify.app/         
 
 A responsive personal portfolio website for Afia Bakr, a full-stack web developer specializing in the MERN stack. Built as part of the Oasis Infobyte Web Development Internship (Level 1).
 
