@@ -1,5 +1,5 @@
 # AFIA_BLOGS — Landing Page
-
+![AFIA_BLOGS][https://afia-blogs.netlify.app/]
 A responsive marketing landing page for **AFIA_BLOGS**, a fictional community blogging platform. Built as part of the Oasis Infobyte Web Development Internship (Level 1).
 
 ## Overview
