@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Auth System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body hidden>
+  <nav class="topbar">
+    <span class="brand">🔐 Auth System</span>
+    <button type="button" class="btn btn-outline" id="logout-btn">Logout</button>
+  </nav>
+
+  <main class="dashboard">
+    <section class="card welcome">
+      <p class="badge">Protected page</p>
+      <h1>Welcome, <span id="user-name">…</span>!</h1>
+      <p class="subtitle">You are logged in. Only signed-in users can see this page.</p>
+    </section>
+
+    <section class="card">
+      <h2>Your account</h2>
+      <dl class="details">
+        <div>
+          <dt>Username</dt>
+          <dd id="user-username">…</dd>
+        </div>
+        <div>
+          <dt>Email</dt>
+          <dd id="user-email">…</dd>
+        </div>
+        <div>
+          <dt>Member since</dt>
+          <dd id="user-created">…</dd>
+        </div>
+      </dl>
+    </section>
+  </main>
+
+  <script src="js/store.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

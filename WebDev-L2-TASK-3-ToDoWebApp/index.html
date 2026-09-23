@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <meta name="description" content="Manage your daily tasks with a simple to-do list: add, complete, edit, and delete tasks.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>My To-Do List</h1>
+      <p class="subtitle" id="todayLabel"></p>
+    </header>
+
+    <form class="task-form" id="taskForm" autocomplete="off">
+      <label for="taskInput" class="visually-hidden">New task</label>
+      <input
+        type="text"
+        id="taskInput"
+        placeholder="What do you need to do?"
+        maxlength="200"
+        required
+      >
+      <button type="submit" class="btn btn-primary">Add Task</button>
+    </form>
+    <p class="form-error" id="formError" role="alert"></p>
+
+    <div class="lists">
+      <section class="list-panel" aria-labelledby="pendingHeading">
+        <div class="list-header">
+          <h2 id="pendingHeading">Pending Tasks</h2>
+          <span class="count count-pending" id="pendingCount">0 pending</span>
+        </div>
+        <ul class="task-list" id="pendingList"></ul>
+        <p class="empty-state" id="pendingEmpty">
+          Nothing pending. Add a task above to get started.
+        </p>
+      </section>
+
+      <section class="list-panel" aria-labelledby="completedHeading">
+        <div class="list-header">
+          <h2 id="completedHeading">Completed Tasks</h2>
+          <span class="count count-completed" id="completedCount">0 completed</span>
+        </div>
+        <ul class="task-list" id="completedList"></ul>
+        <p class="empty-state" id="completedEmpty">
+          No completed tasks yet. Tick one off when you're done.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <template id="taskTemplate">
+    <li class="task">
+      <input type="checkbox" class="task-toggle">
+      <div class="task-body">
+        <span class="task-text"></span>
+        <div class="task-meta"></div>
+      </div>
+      <div class="task-actions">
+        <button type="button" class="btn btn-icon btn-edit">Edit</button>
+        <button type="button" class="btn btn-icon btn-delete">Delete</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>

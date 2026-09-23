@@ -1,0 +1,21 @@
+{
+  "name": "login-authentication-system",
+  "version": "1.0.0",
+  "description": "Login authentication system with registration, login, and a protected dashboard (Node.js + Express + SQLite).",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "author": "Afia Bakr",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0"
+  }
+}

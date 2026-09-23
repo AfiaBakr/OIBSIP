@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Auth System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="auth-page">
+    <div class="card">
+      <header class="card-header">
+        <div class="logo" aria-hidden="true">🔐</div>
+        <h1>Welcome back</h1>
+        <p class="subtitle">Log in to reach your dashboard.</p>
+      </header>
+
+      <div class="alert" id="form-alert" role="alert" hidden></div>
+
+      <form id="login-form" class="auth-form" novalidate>
+        <div class="field">
+          <label for="identifier">Username or email</label>
+          <input type="text" id="identifier" name="identifier" autocomplete="username" required />
+          <p class="field-error" id="identifier-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="password-wrap">
+            <input type="password" id="password" name="password" autocomplete="current-password" required />
+            <button type="button" class="toggle-password" aria-label="Show password">Show</button>
+          </div>
+          <p class="field-error" id="password-error"></p>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+      </form>
+
+      <p class="switch">Don't have an account? <a href="register.html">Register</a></p>
+    </div>
+  </main>
+
+  <script src="js/store.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
