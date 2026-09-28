@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef } from 'react';
 import { io } from 'socket.io-client';
-import { loadAuth } from './api';
+import { API_URL, loadAuth } from './api';
 
 /**
  * Opens an authenticated Socket.IO connection for as long as the component is mounted.
@@ -20,7 +20,7 @@ export function useSocket(kind, handlers, onReconnect) {
     const token = loadAuth(kind)?.token;
     if (!token) return undefined;
 
-    const socket = io({ auth: { token } });
+    const socket = io(API_URL || undefined, { auth: { token } });
     let connectedBefore = false;
 
     socket.on('connect', () => {

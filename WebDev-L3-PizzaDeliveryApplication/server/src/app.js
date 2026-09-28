@@ -13,6 +13,8 @@ import { HttpError } from './utils/httpError.js';
 
 export function createApp() {
   const app = express();
+  // Behind a hosting proxy (e.g. Render), trust X-Forwarded-For so rate limits see real client IPs.
+  if (env.trustProxy) app.set('trust proxy', env.trustProxy);
 
   app.use(cors({ origin: env.clientUrl }));
   app.use(express.json({ limit: '100kb' }));

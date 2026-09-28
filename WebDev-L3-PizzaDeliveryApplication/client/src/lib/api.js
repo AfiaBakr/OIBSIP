@@ -30,7 +30,11 @@ export function saveAuth(kind, auth) {
 /** Admin API calls carry the admin token; everything else carries the customer token. */
 const kindForUrl = (url = '') => (url.startsWith('/admin') ? 'admin' : 'user');
 
-export const api = axios.create({ baseURL: '/api' });
+// Empty in development (Vite proxies /api). In production, set VITE_API_URL to the API's origin,
+// e.g. https://pizza-api.onrender.com, when the client and API are hosted separately.
+export const API_URL = (import.meta.env.VITE_API_URL || '').replace(/\/+$/, '');
+
+export const api = axios.create({ baseURL: `${API_URL}/api` });
 
 api.interceptors.request.use((config) => {
   const token = loadAuth(kindForUrl(config.url))?.token;

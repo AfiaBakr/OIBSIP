@@ -124,3 +124,32 @@ cd ../server && npm start
 ```
 
 When `client/dist` exists, the Express server serves the React app itself, so the whole app runs from one origin on `PORT`.
+
+## Deployment (client on Vercel, API on Render)
+
+The API needs a long-running process for Socket.IO and the low-stock cron job, so it is hosted on Render; the React app is static and goes on Vercel.
+
+**1. Database:** create a free cluster on [MongoDB Atlas](https://www.mongodb.com/atlas), add a database user, and allow access from anywhere (`0.0.0.0/0`) under Network Access. Copy the `mongodb+srv://...` connection string.
+
+**2. API on Render:** New → Web Service → connect this repo, then set:
+
+| Setting | Value |
+| --- | --- |
+| Root Directory | `WebDev-L3-PizzaDeliveryApplication/server` |
+| Build Command | `npm install` |
+| Start Command | `npm start` |
+| Health Check Path | `/api/health` |
+
+Add the environment variables from `server/.env.example`, at minimum `MONGO_URI`, `JWT_SECRET`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`, `TRUST_PROXY=1`, and `CLIENT_URL` (the Vercel URL from step 3; update it once you have it). Render sets `PORT` itself. Seed the database once by running `npm run seed` locally with `MONGO_URI` pointing at Atlas, or from the Render Shell.
+
+**3. Client on Vercel:** New Project → import this repo, then set:
+
+| Setting | Value |
+| --- | --- |
+| Root Directory | `WebDev-L3-PizzaDeliveryApplication/client` |
+| Framework Preset | Vite |
+| Environment variable | `VITE_API_URL=https://<your-service>.onrender.com` (no trailing slash) |
+
+`client/vercel.json` rewrites every path to `index.html` so React Router routes survive a page refresh. `VITE_API_URL` is baked in at build time, so redeploy the client after changing it.
+
+> Render's free tier sleeps after 15 minutes of inactivity, so the first request after a pause can take up to a minute.
