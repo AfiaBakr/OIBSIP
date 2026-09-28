@@ -1,3 +1,3 @@
 # Calculator
 
-https://afia-calculator.netlify.app/
+https://calculator-afia.netlify.app/
